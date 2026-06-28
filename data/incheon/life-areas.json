@@ -1,0 +1,223 @@
+[
+  {
+    "slug": "songdo-international-city",
+    "name": "송도국제도시",
+    "type": "newtown",
+    "gu": "yeonsu-gu",
+    "stations": [
+      "인천대입구역",
+      "센트럴파크역",
+      "송도달빛축제공원역"
+    ],
+    "areas": [
+      "송도"
+    ],
+    "focus": "국제업무지구·컨벤시아·호텔·오피스텔이 밀집한 신도시 업무·숙박 중심권"
+  },
+  {
+    "slug": "cheongna-international-city",
+    "name": "청라국제도시",
+    "type": "newtown",
+    "gu": "seo-gu",
+    "stations": [
+      "청라국제도시역"
+    ],
+    "areas": [
+      "청라"
+    ],
+    "focus": "호수공원과 대단지 오피스텔·주거가 결합한 신도시 생활권"
+  },
+  {
+    "slug": "geomdan-newtown",
+    "name": "검단신도시",
+    "type": "newtown",
+    "gu": "seo-gu",
+    "stations": [
+      "검단사거리역",
+      "검단오류역"
+    ],
+    "areas": [
+      "검단"
+    ],
+    "focus": "신규 입주가 활발한 신도시이며 2026 검단구 분리 대응 권역"
+  },
+  {
+    "slug": "yeongjong-unseo",
+    "name": "영종·운서",
+    "type": "airport",
+    "gu": "jung-gu",
+    "stations": [
+      "운서역",
+      "영종역"
+    ],
+    "areas": [
+      "영종",
+      "운서"
+    ],
+    "focus": "공항 배후 신도시와 숙소권, 차량 이동 기준이 도심과 다른 공항권"
+  },
+  {
+    "slug": "bupyeong-station-market",
+    "name": "부평역·부평시장",
+    "type": "station-area",
+    "gu": "bupyeong-gu",
+    "stations": [
+      "부평역",
+      "부평시장역"
+    ],
+    "areas": [
+      "부평"
+    ],
+    "focus": "인천 최대 환승 거점과 전통 상권이 맞물린 역세권 중심 생활권"
+  },
+  {
+    "slug": "juan-dohwa",
+    "name": "주안·도화",
+    "type": "old-town",
+    "gu": "michuhol-gu",
+    "stations": [
+      "주안역",
+      "제물포역"
+    ],
+    "areas": [
+      "주안",
+      "도화"
+    ],
+    "focus": "역세권과 원도심 주거지가 이어지는 생활권"
+  },
+  {
+    "slug": "guwol-incheon-cityhall",
+    "name": "구월·인천시청",
+    "type": "business",
+    "gu": "namdong-gu",
+    "stations": [
+      "인천시청역",
+      "구월역",
+      "예술회관역"
+    ],
+    "areas": [
+      "구월"
+    ],
+    "focus": "인천시청·행정과 상권, 숙소가 모인 중심 생활권"
+  },
+  {
+    "slug": "dongincheon-jemulpo",
+    "name": "동인천·제물포",
+    "type": "old-town",
+    "gu": "jung-gu",
+    "stations": [
+      "동인천역",
+      "제물포역",
+      "인천역"
+    ],
+    "areas": [
+      "동인천"
+    ],
+    "focus": "개항장·항만과 맞닿은 인천의 대표 원도심 생활권"
+  },
+  {
+    "slug": "yonghyeon-hagik",
+    "name": "용현·학익",
+    "type": "old-town",
+    "gu": "michuhol-gu",
+    "stations": [
+      "인하대역",
+      "제물포역"
+    ],
+    "areas": [
+      "용현",
+      "학익"
+    ],
+    "focus": "대학가와 행정·주거가 섞인 원도심 생활권"
+  },
+  {
+    "slug": "gyesan-jakjeon",
+    "name": "계산·작전",
+    "type": "residential",
+    "gu": "gyeyang-gu",
+    "stations": [
+      "계산역",
+      "작전역",
+      "경인교대입구역"
+    ],
+    "areas": [
+      "계산",
+      "작전"
+    ],
+    "focus": "계양 생활권 주거지이며 서울·김포 인접 이동권"
+  },
+  {
+    "slug": "yeonsu-woninjae",
+    "name": "연수·원인재",
+    "type": "residential",
+    "gu": "yeonsu-gu",
+    "stations": [
+      "원인재역",
+      "연수역"
+    ],
+    "areas": [
+      "연수"
+    ],
+    "focus": "송도와 원도심을 잇는 주거 중심 생활권"
+  },
+  {
+    "slug": "nonhyeon-sorae",
+    "name": "논현·소래",
+    "type": "residential",
+    "gu": "namdong-gu",
+    "stations": [
+      "인천논현역",
+      "소래포구역"
+    ],
+    "areas": [
+      "논현"
+    ],
+    "focus": "대단지 주거지와 소래포구 인접권"
+  },
+  {
+    "slug": "samsan-bupyeong-gu-office",
+    "name": "삼산·부평구청",
+    "type": "residential",
+    "gu": "bupyeong-gu",
+    "stations": [
+      "부평구청역",
+      "삼산체육관역"
+    ],
+    "areas": [
+      "삼산"
+    ],
+    "focus": "부평구청·쇼핑 인접 주거 생활권"
+  },
+  {
+    "slug": "incheon-airport",
+    "name": "인천공항",
+    "type": "airport",
+    "gu": "jung-gu",
+    "stations": [
+      "인천공항1터미널역",
+      "인천공항2터미널역"
+    ],
+    "areas": [
+      "인천공항"
+    ],
+    "focus": "공항 터미널과 인접 숙소권, 이동 시간·사전 예약 확인이 핵심인 공항권"
+  },
+  {
+    "slug": "ganghwa",
+    "name": "강화",
+    "type": "island",
+    "gu": "ganghwa-gun",
+    "stations": [],
+    "areas": [],
+    "focus": "지하철이 닿지 않는 외곽·도서형 권역으로 차량 이동과 사전 예약이 먼저인 곳"
+  },
+  {
+    "slug": "ongjin-islands",
+    "name": "옹진 도서",
+    "type": "island",
+    "gu": "ongjin-gun",
+    "stations": [],
+    "areas": [],
+    "focus": "영흥·백령·대청·연평·자월 등 여러 섬으로 이루어진 도서권"
+  }
+]

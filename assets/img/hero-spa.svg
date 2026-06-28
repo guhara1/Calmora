@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="오션뷰 프리미엄 케어룸 이미지">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7FC2E8"/><stop offset="1" stop-color="#CDEBF5"/>
+    </linearGradient>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1FA8C4"/><stop offset="0.5" stop-color="#34C2D6"/><stop offset="1" stop-color="#7FE0DD"/>
+    </linearGradient>
+    <linearGradient id="room" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F4EFE6"/><stop offset="1" stop-color="#E7DECF"/>
+    </linearGradient>
+    <linearGradient id="bed" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#EDE6D8"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.18"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- room -->
+  <rect width="1200" height="900" fill="url(#room)"/>
+
+  <!-- window / ocean view (left) -->
+  <rect x="40" y="60" width="560" height="640" rx="10" fill="url(#sky)"/>
+  <rect x="40" y="380" width="560" height="320" fill="url(#sea)"/>
+  <!-- horizon hills -->
+  <path d="M40 380 q140 -46 300 -8 q150 36 260 6 v22 H40 Z" fill="#2C7C8C" opacity="0.55"/>
+  <!-- beach -->
+  <path d="M40 540 q150 -40 320 24 q120 50 240 8 v128 H40 Z" fill="#EFE2C4"/>
+  <path d="M40 560 q150 -30 320 30 q120 50 240 12 v98 H40 Z" fill="url(#sea)" opacity="0.85"/>
+  <!-- sun glints -->
+  <circle cx="150" cy="470" r="3" fill="#ffffff" opacity="0.7"/>
+  <circle cx="220" cy="500" r="2.4" fill="#ffffff" opacity="0.6"/>
+  <circle cx="300" cy="485" r="2.8" fill="#ffffff" opacity="0.6"/>
+  <!-- clouds -->
+  <ellipse cx="300" cy="150" rx="70" ry="22" fill="#ffffff" opacity="0.8"/>
+  <ellipse cx="430" cy="120" rx="54" ry="18" fill="#ffffff" opacity="0.7"/>
+  <!-- window frame -->
+  <rect x="40" y="60" width="560" height="640" rx="10" fill="none" stroke="#C9B79A" stroke-width="16"/>
+  <line x1="320" y1="60" x2="320" y2="700" stroke="#C9B79A" stroke-width="12"/>
+
+  <!-- palm leaves -->
+  <g fill="#2F8F5B" opacity="0.92">
+    <path d="M70 90 q60 30 86 110 q-70 -40 -110 -70 Z"/>
+    <path d="M64 150 q70 14 120 78 q-78 -18 -130 -38 Z"/>
+  </g>
+
+  <!-- stone wall (right) -->
+  <rect x="980" y="60" width="180" height="430" fill="#D8CDBA"/>
+  <g stroke="#C7BBA4" stroke-width="3">
+    <line x1="980" y1="150" x2="1160" y2="150"/><line x1="980" y1="250" x2="1160" y2="250"/>
+    <line x1="980" y1="350" x2="1160" y2="350"/><line x1="1060" y1="60" x2="1060" y2="490"/>
+  </g>
+  <!-- vessel sink -->
+  <ellipse cx="1075" cy="470" rx="56" ry="20" fill="#EFE9DC"/>
+  <ellipse cx="1075" cy="466" rx="44" ry="13" fill="#D7CDBA"/>
+
+  <!-- massage bed -->
+  <rect x="560" y="560" width="560" height="240" rx="18" fill="url(#bed)"/>
+  <rect x="560" y="560" width="560" height="80" rx="18" fill="#FBF6EC"/>
+  <!-- folded towel + flower -->
+  <rect x="690" y="600" width="150" height="40" rx="8" fill="#F1E9D8"/>
+  <circle cx="765" cy="600" r="16" fill="#FFFFFF"/><circle cx="765" cy="600" r="6" fill="#E7C45A"/>
+  <!-- bed skirt -->
+  <rect x="600" y="780" width="500" height="120" fill="#E3DAC9"/>
+
+  <!-- candles tray -->
+  <ellipse cx="1080" cy="780" rx="92" ry="26" fill="#E7DEC9"/>
+  <g fill="#FBF3E2"><rect x="1030" y="742" width="16" height="40" rx="4"/><rect x="1064" y="734" width="16" height="48" rx="4"/><rect x="1100" y="746" width="16" height="36" rx="4"/></g>
+  <g fill="#F6B73C"><ellipse cx="1038" cy="740" rx="4" ry="8"/><ellipse cx="1072" cy="732" rx="4" ry="8"/><ellipse cx="1108" cy="744" rx="4" ry="8"/></g>
+
+  <!-- plant pot -->
+  <path d="M470 760 q-30 -120 18 -190 q26 70 6 190 Z" fill="#2F8F5B" opacity="0.9"/>
+  <rect x="452" y="760" width="70" height="80" rx="10" fill="#C9B79A"/>
+
+  <!-- soft sheen -->
+  <rect width="1200" height="900" fill="url(#sheen)"/>
+</svg>

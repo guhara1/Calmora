@@ -1,0 +1,91 @@
+/* =========================================================================
+   Calmora · Design Tokens
+   프리미엄 팔레트(딥 네이비 + 골드) + 오렌지 CTA 시스템
+   기존 Pretendard / 토큰 시스템을 프리미엄 팔레트로 교체합니다.
+   ========================================================================= */
+
+:root {
+  /* ---- Brand palette (premium dark navy + gold) ---- */
+  --c-bg:            #0A0D12;   /* page background */
+  --c-bg-2:          #0E121A;   /* alt section */
+  --c-surface:       #121826;   /* card surface */
+  --c-surface-2:     #161D2D;   /* raised card */
+  --c-surface-3:     #1C2436;   /* hover / inset */
+  --c-line:          rgba(255, 255, 255, 0.08);
+  --c-line-strong:   rgba(255, 255, 255, 0.14);
+
+  /* Gold accent (히어로/추천 카드 강조) */
+  --c-gold:          #E2C98A;
+  --c-gold-2:        #D9B779;
+  --c-gold-soft:     rgba(226, 201, 138, 0.14);
+  --c-gold-line:     rgba(226, 201, 138, 0.42);
+
+  /* Orange CTA (footer 문의 버튼) */
+  --c-orange:        #FF6A1A;
+  --c-orange-2:      #F25C09;
+  --c-orange-ink:    #1A0E04;
+  --c-orange-soft:   rgba(255, 106, 26, 0.16);
+
+  /* Text */
+  --c-text:          #EDEFF5;
+  --c-text-2:        #C3CAD8;
+  --c-text-muted:    #8E97A8;
+  --c-text-faint:    #6B7385;
+  --c-on-gold:       #1A140A;
+
+  /* Status */
+  --c-ok:            #5BD6A6;
+  --c-warn:          #F2C14E;
+
+  /* ---- Typography ---- */
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+               system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Apple SD Gothic Neo",
+               "Noto Sans KR", sans-serif;
+
+  --fs-12: 0.75rem;
+  --fs-13: 0.8125rem;
+  --fs-14: 0.875rem;
+  --fs-15: 0.9375rem;
+  --fs-16: 1rem;
+  --fs-18: 1.125rem;
+  --fs-20: 1.25rem;
+  --fs-24: 1.5rem;
+  --fs-30: 1.875rem;
+  --fs-38: 2.375rem;
+  --fs-48: 3rem;
+
+  --lh-tight: 1.25;
+  --lh-snug:  1.45;
+  --lh-base:  1.75;
+
+  /* ---- Spacing ---- */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+  --sp-8: 4rem;
+  --sp-9: 6rem;
+
+  /* ---- Radius ---- */
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 18px;
+  --r-xl: 24px;
+  --r-pill: 999px;
+
+  /* ---- Shadow / overlay ---- */
+  --shadow-card: 0 1px 0 rgba(255,255,255,0.03) inset, 0 18px 40px -24px rgba(0,0,0,0.8);
+  --shadow-lift: 0 24px 60px -28px rgba(0,0,0,0.85);
+  --ring-gold: 0 0 0 1px var(--c-gold-line), 0 24px 60px -30px rgba(226,201,138,0.25);
+
+  /* Component overlays */
+  --overlay-top: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0) 40%);
+  --overlay-gold: radial-gradient(120% 100% at 50% 0%, rgba(226,201,138,0.10), transparent 60%);
+  --overlay-hero: radial-gradient(80% 120% at 80% 0%, rgba(226,201,138,0.12), transparent 55%),
+                  radial-gradient(90% 120% at 0% 100%, rgba(40,70,120,0.18), transparent 60%);
+
+  --container: 1180px;
+}

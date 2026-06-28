@@ -1,0 +1,204 @@
+[
+  {
+    "slug": "songdo",
+    "name": "송도",
+    "gu": "yeonsu-gu",
+    "type": "newtown",
+    "life": "송도국제도시",
+    "lifeslug": "songdo-international-city",
+    "stations": [
+      "인천대입구역",
+      "센트럴파크역"
+    ],
+    "focus": "국제업무지구·호텔·오피스텔이 밀집한 신도시"
+  },
+  {
+    "slug": "guwol-dong",
+    "name": "구월",
+    "gu": "namdong-gu",
+    "type": "business",
+    "life": "구월·인천시청",
+    "lifeslug": "guwol-incheon-cityhall",
+    "stations": [
+      "인천시청역",
+      "구월역"
+    ],
+    "focus": "인천시청과 상권이 모인 행정·생활 중심"
+  },
+  {
+    "slug": "nonhyeon-dong",
+    "name": "논현",
+    "gu": "namdong-gu",
+    "type": "residential",
+    "life": "논현·소래",
+    "lifeslug": "nonhyeon-sorae",
+    "stations": [
+      "인천논현역",
+      "소래포구역"
+    ],
+    "focus": "대단지 주거지와 소래포구 인접 생활권"
+  },
+  {
+    "slug": "juan-dong",
+    "name": "주안",
+    "gu": "michuhol-gu",
+    "type": "station-area",
+    "life": "주안·도화",
+    "lifeslug": "juan-dohwa",
+    "stations": [
+      "주안역"
+    ],
+    "focus": "환승 역세권과 원도심 주거지가 맞닿은 생활권"
+  },
+  {
+    "slug": "dohwa-dong",
+    "name": "도화",
+    "gu": "michuhol-gu",
+    "type": "old-town",
+    "life": "주안·도화",
+    "lifeslug": "juan-dohwa",
+    "stations": [
+      "주안역",
+      "제물포역"
+    ],
+    "focus": "제물포 인접 원도심 주거지"
+  },
+  {
+    "slug": "yonghyeon-dong",
+    "name": "용현",
+    "gu": "michuhol-gu",
+    "type": "old-town",
+    "life": "용현·학익",
+    "lifeslug": "yonghyeon-hagik",
+    "stations": [
+      "인하대역",
+      "제물포역"
+    ],
+    "focus": "인하대 인근 대학가와 원도심 주거지"
+  },
+  {
+    "slug": "hagik-dong",
+    "name": "학익",
+    "gu": "michuhol-gu",
+    "type": "residential",
+    "life": "용현·학익",
+    "lifeslug": "yonghyeon-hagik",
+    "stations": [
+      "인하대역"
+    ],
+    "focus": "법조·행정 인접 주거지"
+  },
+  {
+    "slug": "bupyeong-dong",
+    "name": "부평",
+    "gu": "bupyeong-gu",
+    "type": "station-area",
+    "life": "부평역·부평시장",
+    "lifeslug": "bupyeong-station-market",
+    "stations": [
+      "부평역",
+      "부평시장역"
+    ],
+    "focus": "인천 최대 환승 거점과 상권이 결합한 역세권"
+  },
+  {
+    "slug": "samsan-dong",
+    "name": "삼산",
+    "gu": "bupyeong-gu",
+    "type": "residential",
+    "life": "삼산·부평구청",
+    "lifeslug": "samsan-bupyeong-gu-office",
+    "stations": [
+      "부평구청역",
+      "삼산체육관역"
+    ],
+    "focus": "부평구청·쇼핑 인접 주거지"
+  },
+  {
+    "slug": "gyesan-dong",
+    "name": "계산",
+    "gu": "gyeyang-gu",
+    "type": "residential",
+    "life": "계산·작전",
+    "lifeslug": "gyesan-jakjeon",
+    "stations": [
+      "계산역",
+      "경인교대입구역"
+    ],
+    "focus": "계양 생활권의 대표 주거지이며 서울 인접 이동권"
+  },
+  {
+    "slug": "jakjeon-dong",
+    "name": "작전",
+    "gu": "gyeyang-gu",
+    "type": "residential",
+    "life": "계산·작전",
+    "lifeslug": "gyesan-jakjeon",
+    "stations": [
+      "작전역"
+    ],
+    "focus": "계양 생활권 주거지"
+  },
+  {
+    "slug": "cheongna",
+    "name": "청라",
+    "gu": "seo-gu",
+    "type": "newtown",
+    "life": "청라국제도시",
+    "lifeslug": "cheongna-international-city",
+    "stations": [
+      "청라국제도시역"
+    ],
+    "focus": "오피스텔·주거가 밀집한 국제도시형 신도시"
+  },
+  {
+    "slug": "geomdan-area",
+    "name": "검단",
+    "gu": "seo-gu",
+    "type": "newtown",
+    "life": "검단신도시",
+    "lifeslug": "geomdan-newtown",
+    "stations": [
+      "검단사거리역"
+    ],
+    "focus": "빠르게 입주가 진행 중인 신도시이며 2026 검단구 분리 대응 권역"
+  },
+  {
+    "slug": "yeongjong-area",
+    "name": "영종",
+    "gu": "jung-gu",
+    "type": "airport",
+    "life": "영종·운서",
+    "lifeslug": "yeongjong-unseo",
+    "stations": [
+      "운서역",
+      "영종역"
+    ],
+    "focus": "공항 배후 신도시이자 숙소·차량 이동 기준이 다른 공항권"
+  },
+  {
+    "slug": "unseo-dong",
+    "name": "운서",
+    "gu": "jung-gu",
+    "type": "airport",
+    "life": "영종·운서",
+    "lifeslug": "yeongjong-unseo",
+    "stations": [
+      "운서역"
+    ],
+    "focus": "공항 인접 숙소·오피스텔이 모인 공항 생활권"
+  },
+  {
+    "slug": "incheon-airport-area",
+    "name": "인천공항",
+    "gu": "jung-gu",
+    "type": "airport",
+    "life": "인천공항",
+    "lifeslug": "incheon-airport",
+    "stations": [
+      "인천공항1터미널역",
+      "인천공항2터미널역"
+    ],
+    "focus": "공항 터미널·인접 숙소권으로 이동 시간과 사전 예약 확인이 핵심"
+  }
+]

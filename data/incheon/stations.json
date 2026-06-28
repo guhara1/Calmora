@@ -1,0 +1,321 @@
+[
+  {
+    "slug": "incheon-cityhall-station",
+    "name": "인천시청역",
+    "gu": "namdong-gu",
+    "type": "business",
+    "life": "구월·인천시청",
+    "lifeslug": "guwol-incheon-cityhall",
+    "transfer": true,
+    "near": [
+      "구월",
+      "간석"
+    ]
+  },
+  {
+    "slug": "guwol-station",
+    "name": "구월역",
+    "gu": "namdong-gu",
+    "type": "business",
+    "life": "구월·인천시청",
+    "lifeslug": "guwol-incheon-cityhall",
+    "transfer": false,
+    "near": [
+      "구월"
+    ]
+  },
+  {
+    "slug": "ganseogogeori-station",
+    "name": "간석오거리역",
+    "gu": "namdong-gu",
+    "type": "residential",
+    "life": "구월·인천시청",
+    "lifeslug": "guwol-incheon-cityhall",
+    "transfer": false,
+    "near": [
+      "간석"
+    ]
+  },
+  {
+    "slug": "bupyeong-station",
+    "name": "부평역",
+    "gu": "bupyeong-gu",
+    "type": "station-area",
+    "life": "부평역·부평시장",
+    "lifeslug": "bupyeong-station-market",
+    "transfer": true,
+    "near": [
+      "부평",
+      "부개"
+    ]
+  },
+  {
+    "slug": "bupyeong-gu-office-station",
+    "name": "부평구청역",
+    "gu": "bupyeong-gu",
+    "type": "station-area",
+    "life": "삼산·부평구청",
+    "lifeslug": "samsan-bupyeong-gu-office",
+    "transfer": true,
+    "near": [
+      "삼산"
+    ]
+  },
+  {
+    "slug": "bupyeong-market-station",
+    "name": "부평시장역",
+    "gu": "bupyeong-gu",
+    "type": "station-area",
+    "life": "부평역·부평시장",
+    "lifeslug": "bupyeong-station-market",
+    "transfer": false,
+    "near": [
+      "부평"
+    ]
+  },
+  {
+    "slug": "dongam-station",
+    "name": "동암역",
+    "gu": "bupyeong-gu",
+    "type": "station-area",
+    "life": "부평역·부평시장",
+    "lifeslug": "bupyeong-station-market",
+    "transfer": false,
+    "near": [
+      "십정"
+    ]
+  },
+  {
+    "slug": "juan-station",
+    "name": "주안역",
+    "gu": "michuhol-gu",
+    "type": "station-area",
+    "life": "주안·도화",
+    "lifeslug": "juan-dohwa",
+    "transfer": true,
+    "near": [
+      "주안",
+      "도화"
+    ]
+  },
+  {
+    "slug": "jemulpo-station",
+    "name": "제물포역",
+    "gu": "michuhol-gu",
+    "type": "old-town",
+    "life": "용현·학익",
+    "lifeslug": "yonghyeon-hagik",
+    "transfer": false,
+    "near": [
+      "도화",
+      "숭의"
+    ]
+  },
+  {
+    "slug": "dongincheon-station",
+    "name": "동인천역",
+    "gu": "jung-gu",
+    "type": "old-town",
+    "life": "동인천·제물포",
+    "lifeslug": "dongincheon-jemulpo",
+    "transfer": false,
+    "near": [
+      "동인천"
+    ]
+  },
+  {
+    "slug": "incheon-station",
+    "name": "인천역",
+    "gu": "jung-gu",
+    "type": "old-town",
+    "life": "동인천·제물포",
+    "lifeslug": "dongincheon-jemulpo",
+    "transfer": true,
+    "near": [
+      "개항장"
+    ]
+  },
+  {
+    "slug": "incheon-univ-station",
+    "name": "인천대입구역",
+    "gu": "yeonsu-gu",
+    "type": "newtown",
+    "life": "송도국제도시",
+    "lifeslug": "songdo-international-city",
+    "transfer": false,
+    "near": [
+      "송도"
+    ]
+  },
+  {
+    "slug": "central-park-station",
+    "name": "센트럴파크역",
+    "gu": "yeonsu-gu",
+    "type": "newtown",
+    "life": "송도국제도시",
+    "lifeslug": "songdo-international-city",
+    "transfer": false,
+    "near": [
+      "송도"
+    ]
+  },
+  {
+    "slug": "songdo-moonlight-festival-park-station",
+    "name": "송도달빛축제공원역",
+    "gu": "yeonsu-gu",
+    "type": "newtown",
+    "life": "송도국제도시",
+    "lifeslug": "songdo-international-city",
+    "transfer": false,
+    "near": [
+      "송도"
+    ]
+  },
+  {
+    "slug": "woninjae-station",
+    "name": "원인재역",
+    "gu": "yeonsu-gu",
+    "type": "residential",
+    "life": "연수·원인재",
+    "lifeslug": "yeonsu-woninjae",
+    "transfer": true,
+    "near": [
+      "연수"
+    ]
+  },
+  {
+    "slug": "incheon-nonhyeon-station",
+    "name": "인천논현역",
+    "gu": "namdong-gu",
+    "type": "residential",
+    "life": "논현·소래",
+    "lifeslug": "nonhyeon-sorae",
+    "transfer": false,
+    "near": [
+      "논현"
+    ]
+  },
+  {
+    "slug": "soraepogu-station",
+    "name": "소래포구역",
+    "gu": "namdong-gu",
+    "type": "residential",
+    "life": "논현·소래",
+    "lifeslug": "nonhyeon-sorae",
+    "transfer": false,
+    "near": [
+      "논현",
+      "소래"
+    ]
+  },
+  {
+    "slug": "geomam-station",
+    "name": "검암역",
+    "gu": "seo-gu",
+    "type": "newtown",
+    "life": "청라국제도시",
+    "lifeslug": "cheongna-international-city",
+    "transfer": true,
+    "near": [
+      "검암",
+      "청라"
+    ]
+  },
+  {
+    "slug": "cheongna-international-city-station",
+    "name": "청라국제도시역",
+    "gu": "seo-gu",
+    "type": "newtown",
+    "life": "청라국제도시",
+    "lifeslug": "cheongna-international-city",
+    "transfer": false,
+    "near": [
+      "청라"
+    ]
+  },
+  {
+    "slug": "geomdan-sageori-station",
+    "name": "검단사거리역",
+    "gu": "seo-gu",
+    "type": "newtown",
+    "life": "검단신도시",
+    "lifeslug": "geomdan-newtown",
+    "transfer": false,
+    "near": [
+      "검단"
+    ]
+  },
+  {
+    "slug": "gyesan-station",
+    "name": "계산역",
+    "gu": "gyeyang-gu",
+    "type": "residential",
+    "life": "계산·작전",
+    "lifeslug": "gyesan-jakjeon",
+    "transfer": false,
+    "near": [
+      "계산"
+    ]
+  },
+  {
+    "slug": "jakjeon-station",
+    "name": "작전역",
+    "gu": "gyeyang-gu",
+    "type": "residential",
+    "life": "계산·작전",
+    "lifeslug": "gyesan-jakjeon",
+    "transfer": false,
+    "near": [
+      "작전"
+    ]
+  },
+  {
+    "slug": "gyeyang-station",
+    "name": "계양역",
+    "gu": "gyeyang-gu",
+    "type": "residential",
+    "life": "계산·작전",
+    "lifeslug": "gyesan-jakjeon",
+    "transfer": true,
+    "near": [
+      "계양"
+    ]
+  },
+  {
+    "slug": "unseo-station",
+    "name": "운서역",
+    "gu": "jung-gu",
+    "type": "airport",
+    "life": "영종·운서",
+    "lifeslug": "yeongjong-unseo",
+    "transfer": false,
+    "near": [
+      "운서",
+      "영종"
+    ]
+  },
+  {
+    "slug": "incheon-airport-terminal-1-station",
+    "name": "인천공항1터미널역",
+    "gu": "jung-gu",
+    "type": "airport",
+    "life": "인천공항",
+    "lifeslug": "incheon-airport",
+    "transfer": false,
+    "near": [
+      "공항 제1터미널"
+    ]
+  },
+  {
+    "slug": "incheon-airport-terminal-2-station",
+    "name": "인천공항2터미널역",
+    "gu": "jung-gu",
+    "type": "airport",
+    "life": "인천공항",
+    "lifeslug": "incheon-airport",
+    "transfer": false,
+    "near": [
+      "공항 제2터미널"
+    ]
+  }
+]

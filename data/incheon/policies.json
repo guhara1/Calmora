@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "privacy-policy",
+    "name": "개인정보 처리방침",
+    "h1": "개인정보 처리방침"
+  },
+  {
+    "slug": "service-standard",
+    "name": "서비스 이용 기준",
+    "h1": "서비스 이용 기준"
+  },
+  {
+    "slug": "illegal-service",
+    "name": "불법·선정적 서비스 불가 안내",
+    "h1": "불법·선정적 서비스 불가 안내"
+  },
+  {
+    "slug": "content-standard",
+    "name": "콘텐츠 작성 기준",
+    "h1": "콘텐츠 작성 기준"
+  },
+  {
+    "slug": "authors",
+    "name": "작성자·검수자 안내",
+    "h1": "작성자·검수자 안내"
+  },
+  {
+    "slug": "contact",
+    "name": "문의하기",
+    "h1": "문의하기"
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "slug": "jemulpo-gu",
+    "name": "제물포구",
+    "base": [
+      "중구",
+      "동구"
+    ]
+  },
+  {
+    "slug": "yeongjong-gu",
+    "name": "영종구",
+    "base": [
+      "중구 영종·운서"
+    ]
+  },
+  {
+    "slug": "geomdan-gu",
+    "name": "검단구",
+    "base": [
+      "서구 검단신도시"
+    ]
+  }
+]

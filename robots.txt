@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /incheon/jemulpo-gu/
+Disallow: /incheon/yeongjong-gu/
+Disallow: /incheon/geomdan-gu/
+
+Sitemap: https://www.calmora.co.kr/sitemap.xml
