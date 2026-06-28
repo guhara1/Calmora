@@ -26,7 +26,8 @@ SITE = {
     "today": "2026-06-28",
     "author": "인천 지역 안내 콘텐츠 담당자",
     "reviewer": "운영 책임자 · 콘텐츠 품질 검수 담당자",
-    "hero_img": "/assets/img/hero-spa.svg",  # 실제 사진은 /assets/img/hero-spa.jpg 로 교체 가능
+    "hero_img": "/assets/img/hero-spa.jpg",        # 실제 사진(이 경로에 업로드)
+    "hero_img_fallback": "/assets/img/hero-spa.svg",  # 파일이 없을 때 자동 폴백
     "hero_alt": "오션뷰 프리미엄 케어룸 · 인천 방문형 관리 안내 이미지",
 }
 
@@ -379,10 +380,13 @@ def build_nav_html(active=""):
         '</nav></div></header>')
 
 def hero_figure_html():
+    # 실제 사진(jpg) 우선, 없으면 SVG로 자동 폴백
+    fallback = esc(SITE["hero_img_fallback"])
     return (
         '<div class="hero-figure">'
         f'<img src="{esc(SITE["hero_img"])}" width="1200" height="900" '
-        f'alt="{esc(SITE["hero_alt"])}" fetchpriority="high" decoding="async">'
+        f'alt="{esc(SITE["hero_alt"])}" fetchpriority="high" decoding="async" '
+        f'onerror="this.onerror=null;this.src=\'{fallback}\'">'
         '<span class="hero-badge">★ 프리미엄 케어 · 예약 안내</span>'
         '</div>')
 
