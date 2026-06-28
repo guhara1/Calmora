@@ -26,7 +26,7 @@ SITE = {
     "today": "2026-06-28",
     "author": "인천 지역 안내 콘텐츠 담당자",
     "reviewer": "운영 책임자 · 콘텐츠 품질 검수 담당자",
-    "hero_img": "/assets/img/hero-spa.jpg",        # 실제 사진(이 경로에 업로드)
+    "hero_img": "/assets/img/hero-spa.webp",       # 실제 사진(webp, ≤50KB)
     "hero_img_fallback": "/assets/img/hero-spa.svg",  # 파일이 없을 때 자동 폴백
     "hero_alt": "오션뷰 프리미엄 케어룸 · 인천 방문형 관리 안내 이미지",
 }
