@@ -499,6 +499,11 @@ def document(*, path, title, description, body, schema_nodes, noindex=False,
         f'<meta name="robots" content="{robots}">',
         f'<link rel="canonical" href="{esc(canonical)}">',
         f'<meta name="author" content="{esc(SITE["author"])}">',
+        # Favicon
+        '<link rel="icon" href="/favicon.ico" sizes="any">',
+        '<link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">',
+        '<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">',
+        '<meta name="theme-color" content="#0A0D12">',
         # Open Graph / Twitter — 선호 썸네일 명시
         '<meta property="og:type" content="website">',
         f'<meta property="og:site_name" content="{esc(SITE["brand"])}">',
@@ -570,6 +575,28 @@ def usecase_detail_html(type_):
     return (f'<p>{USECASE_BANK[type_]}</p><ul>{rows}</ul>'
             f'<p class="muted">{esc(night)} 자세한 기준은 '
             '<a href="/incheon/use/night/">야간 예약</a>, <a href="/incheon/check/travel-fee/">추가 이동비 기준</a>에서 확인할 수 있습니다.</p>')
+
+def pricing_section():
+    """마사지 금액표(코스 기준 기본 금액) — 메인 + 전 지역 페이지 공통."""
+    return (
+      '<section class="section alt" id="price"><div class="container">'
+      '<div class="section-head"><span class="eyebrow">코스 시간으로 보는 기본 요금</span>'
+      '<h2>관리 시간 기준 기본 금액</h2>'
+      '<p class="lead">관리 시간(60·90·120분)을 기준으로 정리한 기본 금액입니다. 표시되지 않은 별도 비용을 두지 않는 것을 원칙으로 안내합니다.</p></div>'
+      '<div class="price-grid">'
+        '<div class="price-card"><div class="course">60분 코스</div>'
+        '<div class="amount">90,000<span>원</span></div><div class="dur">60분</div>'
+        '<div class="desc">핵심 부위 위주 가벼운 이완</div></div>'
+        '<div class="price-card featured"><span class="price-pick">추천</span><div class="course">90분 코스</div>'
+        '<div class="amount">150,000<span>원</span></div><div class="dur">90분</div>'
+        '<div class="desc">전신 균형 표준 구성·아로마 포함</div></div>'
+        '<div class="price-card"><div class="course">120분 코스</div>'
+        '<div class="amount">180,000<span>원</span></div><div class="dur">120분</div>'
+        '<div class="desc">구석구석 집중하는 프리미엄 구성</div></div>'
+      '</div>'
+      '<p class="muted" style="text-align:center;margin-top:1.2rem">방문 지역과 시간대, 이동 거리에 따라 최종 금액은 통화 시 확정됩니다. '
+      '<a href="/incheon/check/travel-fee/">요금·예약 기준 자세히 보기 →</a></p>'
+      '</div></section>')
 
 def customer_notice_html():
     return ('<h2>고객 유의사항</h2>'
@@ -654,25 +681,7 @@ def build_main():
       '</div></div></section>')
 
     # 가격(스크린샷 기준) — 통화 시 확정 안내
-    pricing = (
-      '<section class="section alt" id="price"><div class="container">'
-      '<div class="section-head"><span class="eyebrow">코스 시간으로 보는 기본 요금</span>'
-      '<h2>관리 시간 기준 기본 금액</h2>'
-      '<p class="lead">관리 시간(60·90·120분)을 기준으로 정리한 기본 금액입니다. 표시되지 않은 별도 비용을 두지 않는 것을 원칙으로 안내합니다.</p></div>'
-      '<div class="price-grid">'
-        '<div class="price-card"><div class="course">60분 코스</div>'
-        '<div class="amount">90,000<span>원</span></div><div class="dur">60분</div>'
-        '<div class="desc">핵심 부위 위주 가벼운 이완</div></div>'
-        '<div class="price-card featured"><span class="price-pick">추천</span><div class="course">90분 코스</div>'
-        '<div class="amount">150,000<span>원</span></div><div class="dur">90분</div>'
-        '<div class="desc">전신 균형 표준 구성·아로마 포함</div></div>'
-        '<div class="price-card"><div class="course">120분 코스</div>'
-        '<div class="amount">180,000<span>원</span></div><div class="dur">120분</div>'
-        '<div class="desc">구석구석 집중하는 프리미엄 구성</div></div>'
-      '</div>'
-      '<p class="muted" style="text-align:center;margin-top:1.2rem">방문 지역과 시간대, 이동 거리에 따라 최종 금액은 통화 시 확정됩니다. '
-      '<a href="/incheon/check/travel-fee/">요금·예약 기준 자세히 보기 →</a></p>'
-      '</div></section>')
+    pricing = pricing_section()
 
     s1 = (
       '<section class="section"><div class="container"><div class="prose">'
@@ -807,6 +816,7 @@ def build_region_page(*, path, h1, title, desc, name, focus, type_,
 
     body = (
       hero +
+      pricing_section() +
       breadcrumb_html(crumbs) +
       '<section class="section"><div class="container"><div class="content-layout">'
       '<div class="prose">'
@@ -1016,7 +1026,7 @@ def build_use(u):
         ("주소만 알려주면 되나요?", "도로명 주소와 함께 동·호수, 공동현관·프런트 출입 방식을 알려주시면 도착이 빨라집니다."),
         ("불법·선정적 서비스도 가능한가요?", "불법·선정적 서비스는 제공하거나 안내하지 않습니다."),
     ]
-    body = (hero + breadcrumb_html([("인천 홈","/incheon/"),("이용 장소","/incheon/#use"),(name, path)]) +
+    body = (hero + pricing_section() + breadcrumb_html([("인천 홈","/incheon/"),("이용 장소","/incheon/#use"),(name, path)]) +
       '<section class="section"><div class="container"><div class="content-layout"><div class="prose">'
       f'<h2>{esc(name)}란</h2><p>인천에서 {esc(u["focus"])} 유형입니다. 인천은 신도시·원도심·공항권·도서권의 건물 형태와 출입 방식이 '
       f'서로 달라, {esc(name)}을(를) 이용할 때 확인할 항목도 권역마다 차이가 있습니다. 정확한 위치와 출입 정보를 미리 확인할수록 '
@@ -1082,7 +1092,7 @@ def build_check(c):
       f'<h1>{esc(h1)}</h1><p class="lead">{esc(clamp(c["focus"],90))}.</p>'
       f'<div class="hero-cta"><a class="btn btn-gold" href="{SITE["phone_href"]}">전화예약 {esc(SITE["phone"])}</a></div></div>'
       + hero_figure_html() + '</div></div></section>')
-    body = (hero + breadcrumb_html([("인천 홈","/incheon/"),("예약 전 확인","/incheon/check/address/"),(name, path)]) +
+    body = (hero + pricing_section() + breadcrumb_html([("인천 홈","/incheon/"),("예약 전 확인","/incheon/check/address/"),(name, path)]) +
       '<section class="section"><div class="container"><div class="content-layout"><div class="prose">'
       f'<h2>{esc(name)} 안내</h2><p>{esc(c["focus"])} 단계입니다. 인천은 신도시·원도심·공항권·도서권에 따라 건물 형태와 '
       f'이동 기준이 달라, {esc(name)}도 권역별로 확인 포인트가 다릅니다.</p>'
@@ -1234,7 +1244,7 @@ def build_airport_island_hub():
       f'<div class="hero-cta"><a class="btn btn-gold" href="{SITE["phone_href"]}">전화예약 {esc(SITE["phone"])}</a>'
       '<a class="btn btn-ghost" href="/incheon/check/travel-fee/">추가 이동비 기준</a></div></div>'
       + hero_figure_html() + '</div></div></section>')
-    body = (hero + breadcrumb_html([("인천 홈","/incheon/"),(name, path)]) +
+    body = (hero + pricing_section() + breadcrumb_html([("인천 홈","/incheon/"),(name, path)]) +
       f'<section class="section"><div class="container"><div class="grid grid-4">{card_html}</div>'
       '<div class="prose" style="margin-top:2rem"><h2>공항·도서 권역 확인 기준</h2>'
       f'<p>{USECASE_BANK["airport"]}</p><p>{TYPE_DETAIL["airport"]}</p>'
