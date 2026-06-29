@@ -1,6 +1,4 @@
 # Cloudflare Pages redirects
-# 루트 → 인천 홈
-/            /incheon/    302
-
-# 흔한 오입력 보정(선택)
-/incheon     /incheon/    301
+# 구버전 /incheon/* 주소를 루트로 영구 이동(기존 링크·색인 보존)
+/incheon/*    /:splat    301
+/incheon      /          301

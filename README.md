@@ -10,7 +10,7 @@ python3 build.py
 ```
 
 `build.py` 하나가 데이터(Python dict) → 정적 HTML 트리 + `sitemap.xml` / `robots.txt` /
-`404.html` / `data/incheon/*.json` 을 생성합니다. 외부 의존성 없음(Python 3.8+).
+`404.html` / `data/*.json` 을 생성합니다. 외부 의존성 없음(Python 3.8+).
 
 ## 구조
 
@@ -20,9 +20,10 @@ assets/css/tokens.css     프리미엄 토큰(딥 네이비 + 골드, 오렌지 
 assets/css/styles.css     컴포넌트 오버레이
 assets/js/main.js         모바일 내비 토글
 assets/img/hero-spa.svg   히어로 우측 이미지(아래 "이미지 교체" 참고)
-incheon/                  생성된 페이지(구군·대표지역·생활권·역세권·이용장소·예약전확인·운영기준)
+index.html                홈(루트). 구군·대표지역·생활권·역세권·이용장소·예약전확인·운영기준은
+                          /jung-gu/ · /life/ · /station/ · /use/ · /check/ · /policy/ 등 루트 하위에 생성
 data/incheon/*.json       구조화 데이터(지시서 25항)
-sitemap.xml / robots.txt / 404.html / index.html(→ /incheon/ 리다이렉트)
+sitemap.xml / robots.txt / 404.html
 ```
 
 ## 핵심 설정 (`build.py` 상단 `SITE`)
@@ -32,7 +33,7 @@ sitemap.xml / robots.txt / 404.html / index.html(→ /incheon/ 리다이렉트)
 | 상호 | Calmora |
 | 전화예약 | 0508-202-4719 |
 | 텔레그램(제작/제휴 문의) | https://t.me/googleseolab |
-| 배포 도메인 | `https://www.calmora.co.kr` (실제 도메인으로 수정) |
+| 배포 도메인 | `https://calmora.pages.dev` (실제 도메인으로 수정) |
 
 > **도메인 변경**: `SITE["url"]` 만 바꾸고 `python3 build.py` 재실행하면 canonical·og·sitemap·스키마가 일괄 갱신됩니다.
 
@@ -65,4 +66,4 @@ sitemap.xml / robots.txt / 404.html / index.html(→ /incheon/ 리다이렉트)
 메인 1 · 현행 구군 10 · 대표지역 16 · 생활권 16 · 역세권 26 · 이용장소 8 ·
 예약전확인 8 · 운영기준 6 · 공항·도서 허브 1 · 2026 개편 draft 3(noindex)
 
-> 세부 행정동은 `data/incheon/` 에 보관(DB)하고, 검색 수요·본문 품질이 확보된 페이지부터 단계적으로 추가·색인합니다.
+> 세부 행정동은 `data/` 에 보관(DB)하고, 검색 수요·본문 품질이 확보된 페이지부터 단계적으로 추가·색인합니다.

@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
-Disallow: /incheon/jemulpo-gu/
-Disallow: /incheon/yeongjong-gu/
-Disallow: /incheon/geomdan-gu/
+Disallow: /jemulpo-gu/
+Disallow: /yeongjong-gu/
+Disallow: /geomdan-gu/
 
 Sitemap: https://calmora.pages.dev/sitemap.xml

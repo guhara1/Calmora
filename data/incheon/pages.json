@@ -1,476 +1,476 @@
 [
   {
-    "path": "/incheon/",
+    "path": "/",
     "priority": "1.0",
     "noindex": false
   },
   {
-    "path": "/incheon/jung-gu/",
+    "path": "/jung-gu/",
     "priority": "0.8",
     "noindex": false
   },
   {
-    "path": "/incheon/dong-gu/",
+    "path": "/dong-gu/",
     "priority": "0.8",
     "noindex": false
   },
   {
-    "path": "/incheon/michuhol-gu/",
+    "path": "/michuhol-gu/",
     "priority": "0.8",
     "noindex": false
   },
   {
-    "path": "/incheon/yeonsu-gu/",
+    "path": "/yeonsu-gu/",
     "priority": "0.8",
     "noindex": false
   },
   {
-    "path": "/incheon/namdong-gu/",
+    "path": "/namdong-gu/",
     "priority": "0.8",
     "noindex": false
   },
   {
-    "path": "/incheon/bupyeong-gu/",
+    "path": "/bupyeong-gu/",
     "priority": "0.8",
     "noindex": false
   },
   {
-    "path": "/incheon/gyeyang-gu/",
+    "path": "/gyeyang-gu/",
     "priority": "0.8",
     "noindex": false
   },
   {
-    "path": "/incheon/seo-gu/",
+    "path": "/seo-gu/",
     "priority": "0.8",
     "noindex": false
   },
   {
-    "path": "/incheon/ganghwa-gun/",
+    "path": "/ganghwa-gun/",
     "priority": "0.8",
     "noindex": false
   },
   {
-    "path": "/incheon/ongjin-gun/",
+    "path": "/ongjin-gun/",
     "priority": "0.8",
     "noindex": false
   },
   {
-    "path": "/incheon/yeonsu-gu/songdo/",
+    "path": "/yeonsu-gu/songdo/",
     "priority": "0.7",
     "noindex": false
   },
   {
-    "path": "/incheon/namdong-gu/guwol-dong/",
+    "path": "/namdong-gu/guwol-dong/",
     "priority": "0.7",
     "noindex": false
   },
   {
-    "path": "/incheon/namdong-gu/nonhyeon-dong/",
+    "path": "/namdong-gu/nonhyeon-dong/",
     "priority": "0.7",
     "noindex": false
   },
   {
-    "path": "/incheon/michuhol-gu/juan-dong/",
+    "path": "/michuhol-gu/juan-dong/",
     "priority": "0.7",
     "noindex": false
   },
   {
-    "path": "/incheon/michuhol-gu/dohwa-dong/",
+    "path": "/michuhol-gu/dohwa-dong/",
     "priority": "0.7",
     "noindex": false
   },
   {
-    "path": "/incheon/michuhol-gu/yonghyeon-dong/",
+    "path": "/michuhol-gu/yonghyeon-dong/",
     "priority": "0.7",
     "noindex": false
   },
   {
-    "path": "/incheon/michuhol-gu/hagik-dong/",
+    "path": "/michuhol-gu/hagik-dong/",
     "priority": "0.7",
     "noindex": false
   },
   {
-    "path": "/incheon/bupyeong-gu/bupyeong-dong/",
+    "path": "/bupyeong-gu/bupyeong-dong/",
     "priority": "0.7",
     "noindex": false
   },
   {
-    "path": "/incheon/bupyeong-gu/samsan-dong/",
+    "path": "/bupyeong-gu/samsan-dong/",
     "priority": "0.7",
     "noindex": false
   },
   {
-    "path": "/incheon/gyeyang-gu/gyesan-dong/",
+    "path": "/gyeyang-gu/gyesan-dong/",
     "priority": "0.7",
     "noindex": false
   },
   {
-    "path": "/incheon/gyeyang-gu/jakjeon-dong/",
+    "path": "/gyeyang-gu/jakjeon-dong/",
     "priority": "0.7",
     "noindex": false
   },
   {
-    "path": "/incheon/seo-gu/cheongna/",
+    "path": "/seo-gu/cheongna/",
     "priority": "0.7",
     "noindex": false
   },
   {
-    "path": "/incheon/seo-gu/geomdan-area/",
+    "path": "/seo-gu/geomdan-area/",
     "priority": "0.7",
     "noindex": false
   },
   {
-    "path": "/incheon/jung-gu/yeongjong-area/",
+    "path": "/jung-gu/yeongjong-area/",
     "priority": "0.7",
     "noindex": false
   },
   {
-    "path": "/incheon/jung-gu/unseo-dong/",
+    "path": "/jung-gu/unseo-dong/",
     "priority": "0.7",
     "noindex": false
   },
   {
-    "path": "/incheon/jung-gu/incheon-airport-area/",
+    "path": "/jung-gu/incheon-airport-area/",
     "priority": "0.7",
     "noindex": false
   },
   {
-    "path": "/incheon/life/songdo-international-city/",
+    "path": "/life/songdo-international-city/",
     "priority": "0.7",
     "noindex": false
   },
   {
-    "path": "/incheon/life/cheongna-international-city/",
+    "path": "/life/cheongna-international-city/",
     "priority": "0.7",
     "noindex": false
   },
   {
-    "path": "/incheon/life/geomdan-newtown/",
+    "path": "/life/geomdan-newtown/",
     "priority": "0.7",
     "noindex": false
   },
   {
-    "path": "/incheon/life/yeongjong-unseo/",
+    "path": "/life/yeongjong-unseo/",
     "priority": "0.7",
     "noindex": false
   },
   {
-    "path": "/incheon/life/bupyeong-station-market/",
+    "path": "/life/bupyeong-station-market/",
     "priority": "0.7",
     "noindex": false
   },
   {
-    "path": "/incheon/life/juan-dohwa/",
+    "path": "/life/juan-dohwa/",
     "priority": "0.7",
     "noindex": false
   },
   {
-    "path": "/incheon/life/guwol-incheon-cityhall/",
+    "path": "/life/guwol-incheon-cityhall/",
     "priority": "0.7",
     "noindex": false
   },
   {
-    "path": "/incheon/life/dongincheon-jemulpo/",
+    "path": "/life/dongincheon-jemulpo/",
     "priority": "0.7",
     "noindex": false
   },
   {
-    "path": "/incheon/life/yonghyeon-hagik/",
+    "path": "/life/yonghyeon-hagik/",
     "priority": "0.7",
     "noindex": false
   },
   {
-    "path": "/incheon/life/gyesan-jakjeon/",
+    "path": "/life/gyesan-jakjeon/",
     "priority": "0.7",
     "noindex": false
   },
   {
-    "path": "/incheon/life/yeonsu-woninjae/",
+    "path": "/life/yeonsu-woninjae/",
     "priority": "0.7",
     "noindex": false
   },
   {
-    "path": "/incheon/life/nonhyeon-sorae/",
+    "path": "/life/nonhyeon-sorae/",
     "priority": "0.7",
     "noindex": false
   },
   {
-    "path": "/incheon/life/samsan-bupyeong-gu-office/",
+    "path": "/life/samsan-bupyeong-gu-office/",
     "priority": "0.7",
     "noindex": false
   },
   {
-    "path": "/incheon/life/incheon-airport/",
+    "path": "/life/incheon-airport/",
     "priority": "0.7",
     "noindex": false
   },
   {
-    "path": "/incheon/life/ganghwa/",
+    "path": "/life/ganghwa/",
     "priority": "0.7",
     "noindex": false
   },
   {
-    "path": "/incheon/life/ongjin-islands/",
+    "path": "/life/ongjin-islands/",
     "priority": "0.7",
     "noindex": false
   },
   {
-    "path": "/incheon/station/incheon-cityhall-station/",
+    "path": "/station/incheon-cityhall-station/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/station/guwol-station/",
+    "path": "/station/guwol-station/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/station/ganseogogeori-station/",
+    "path": "/station/ganseogogeori-station/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/station/bupyeong-station/",
+    "path": "/station/bupyeong-station/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/station/bupyeong-gu-office-station/",
+    "path": "/station/bupyeong-gu-office-station/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/station/bupyeong-market-station/",
+    "path": "/station/bupyeong-market-station/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/station/dongam-station/",
+    "path": "/station/dongam-station/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/station/juan-station/",
+    "path": "/station/juan-station/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/station/jemulpo-station/",
+    "path": "/station/jemulpo-station/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/station/dongincheon-station/",
+    "path": "/station/dongincheon-station/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/station/incheon-station/",
+    "path": "/station/incheon-station/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/station/incheon-univ-station/",
+    "path": "/station/incheon-univ-station/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/station/central-park-station/",
+    "path": "/station/central-park-station/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/station/songdo-moonlight-festival-park-station/",
+    "path": "/station/songdo-moonlight-festival-park-station/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/station/woninjae-station/",
+    "path": "/station/woninjae-station/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/station/incheon-nonhyeon-station/",
+    "path": "/station/incheon-nonhyeon-station/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/station/soraepogu-station/",
+    "path": "/station/soraepogu-station/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/station/geomam-station/",
+    "path": "/station/geomam-station/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/station/cheongna-international-city-station/",
+    "path": "/station/cheongna-international-city-station/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/station/geomdan-sageori-station/",
+    "path": "/station/geomdan-sageori-station/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/station/gyesan-station/",
+    "path": "/station/gyesan-station/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/station/jakjeon-station/",
+    "path": "/station/jakjeon-station/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/station/gyeyang-station/",
+    "path": "/station/gyeyang-station/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/station/unseo-station/",
+    "path": "/station/unseo-station/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/station/incheon-airport-terminal-1-station/",
+    "path": "/station/incheon-airport-terminal-1-station/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/station/incheon-airport-terminal-2-station/",
+    "path": "/station/incheon-airport-terminal-2-station/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/use/home/",
+    "path": "/use/home/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/use/hotel/",
+    "path": "/use/hotel/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/use/officetel/",
+    "path": "/use/officetel/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/use/business-district/",
+    "path": "/use/business-district/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/use/station-area/",
+    "path": "/use/station-area/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/use/night/",
+    "path": "/use/night/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/use/airport-area/",
+    "path": "/use/airport-area/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/use/island-area/",
+    "path": "/use/island-area/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/check/address/",
+    "path": "/check/address/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/check/building-access/",
+    "path": "/check/building-access/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/check/travel-fee/",
+    "path": "/check/travel-fee/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/check/time/",
+    "path": "/check/time/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/check/change-policy/",
+    "path": "/check/change-policy/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/check/privacy/",
+    "path": "/check/privacy/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/check/service-policy/",
+    "path": "/check/service-policy/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/check/customer-notice/",
+    "path": "/check/customer-notice/",
     "priority": "0.6",
     "noindex": false
   },
   {
-    "path": "/incheon/policy/privacy-policy/",
+    "path": "/policy/privacy-policy/",
     "priority": "0.4",
     "noindex": false
   },
   {
-    "path": "/incheon/policy/service-standard/",
+    "path": "/policy/service-standard/",
     "priority": "0.4",
     "noindex": false
   },
   {
-    "path": "/incheon/policy/illegal-service/",
+    "path": "/policy/illegal-service/",
     "priority": "0.4",
     "noindex": false
   },
   {
-    "path": "/incheon/policy/content-standard/",
+    "path": "/policy/content-standard/",
     "priority": "0.4",
     "noindex": false
   },
   {
-    "path": "/incheon/policy/authors/",
+    "path": "/policy/authors/",
     "priority": "0.4",
     "noindex": false
   },
   {
-    "path": "/incheon/policy/contact/",
+    "path": "/policy/contact/",
     "priority": "0.4",
     "noindex": false
   },
   {
-    "path": "/incheon/airport-island/",
+    "path": "/airport-island/",
     "priority": "0.7",
     "noindex": false
   },
   {
-    "path": "/incheon/jemulpo-gu/",
+    "path": "/jemulpo-gu/",
     "priority": "0.1",
     "noindex": true
   },
   {
-    "path": "/incheon/yeongjong-gu/",
+    "path": "/yeongjong-gu/",
     "priority": "0.1",
     "noindex": true
   },
   {
-    "path": "/incheon/geomdan-gu/",
+    "path": "/geomdan-gu/",
     "priority": "0.1",
     "noindex": true
   }
