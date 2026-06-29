@@ -253,6 +253,21 @@ p  { margin: 0 0 var(--sp-4); }
 .footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--sp-3); margin-top: var(--sp-7); padding-top: var(--sp-5); border-top: 1px solid var(--c-line); font-size: var(--fs-13); color: var(--c-text-faint); }
 .footer-disclaimer { font-size: var(--fs-12); color: var(--c-text-faint); line-height: var(--lh-snug); margin-top: var(--sp-4); max-width: 80ch; }
 
+/* ---------- Reviews (실제 후기) ---------- */
+.reviews-summary { display: flex; align-items: center; gap: var(--sp-4); flex-wrap: wrap; margin-bottom: var(--sp-5); }
+.reviews-score { font-size: var(--fs-38); font-weight: 800; color: var(--c-gold); line-height: 1; }
+.stars { color: var(--c-gold); letter-spacing: 2px; font-size: var(--fs-18); }
+.stars .off { color: var(--c-line-strong); }
+.reviews-count { color: var(--c-text-muted); font-size: var(--fs-14); }
+.review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); }
+.review-card { background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-lg); padding: var(--sp-5); }
+.review-card .stars { font-size: var(--fs-15); }
+.review-card .body { color: var(--c-text-2); font-size: var(--fs-15); margin: var(--sp-3) 0; }
+.review-card .meta { display: flex; justify-content: space-between; font-size: var(--fs-13); color: var(--c-text-faint); }
+.review-card .meta b { color: var(--c-text-2); font-weight: 600; }
+@media (max-width: 980px){ .review-grid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 720px){ .review-grid { grid-template-columns: 1fr; } }
+
 /* ---------- Long-tail topic links (내부링크 강화) ---------- */
 .topic-cluster { padding: var(--sp-7) 0; }
 .topic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-3); }

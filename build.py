@@ -265,6 +265,19 @@ STATIONS = [
 
 STATION_SLUG = {s["name"]: s["slug"] for s in STATIONS}
 
+# 실제 후기 데이터 로드(없거나 비어 있으면 후기 섹션·평점 스키마 미출력 = 가짜 후기 금지)
+def load_reviews():
+    p = os.path.join(ROOT, "data", "incheon", "reviews.json")
+    try:
+        with open(p, encoding="utf-8") as f:
+            data = json.load(f)
+        items = [r for r in data.get("items", []) if r.get("body") and r.get("rating")]
+        return {"best": data.get("bestRating", 5), "items": items}
+    except Exception:
+        return {"best": 5, "items": []}
+
+REVIEWS = load_reviews()
+
 USES = [
     {"slug":"home","name":"자택 이용","kw":"자택","focus":"공동현관 출입과 정확한 동·호수 확인이 핵심인 가정 방문"},
     {"slug":"hotel","name":"호텔·숙소 이용","kw":"호텔·숙소","focus":"숙소 정책과 객실 호수, 프런트 출입 절차 확인이 필요한 이용"},
@@ -601,9 +614,65 @@ COURSES = [
     ("120분 코스", 180000, 120, "구석구석 집중하는 프리미엄 구성"),
 ]
 
-def service_node(page_id, area_served="인천광역시", name_prefix="인천"):
-    """방문형 관리 서비스 + 실제 가격 Offer(화면 표와 일치). 허위 Review/Rating 미포함."""
-    return {
+def review_items_for(area=None):
+    """area가 주어지면 해당 지역 후기만, 없으면 전체 후기."""
+    items = REVIEWS["items"]
+    if area:
+        return [r for r in items if area and area in (r.get("area") or "")]
+    return items
+
+def aggregate_rating_ld(items):
+    if not items:
+        return None
+    vals = [float(r["rating"]) for r in items]
+    avg = round(sum(vals) / len(vals), 1)
+    return {"@type": "AggregateRating", "ratingValue": avg, "reviewCount": len(items),
+            "bestRating": REVIEWS["best"], "worstRating": 1}
+
+def review_ld(items):
+    out = []
+    for r in items:
+        node = {"@type": "Review",
+                "reviewRating": {"@type": "Rating", "ratingValue": r["rating"],
+                                 "bestRating": REVIEWS["best"], "worstRating": 1},
+                "author": {"@type": "Person", "name": r.get("author", "고객")},
+                "reviewBody": r["body"]}
+        if r.get("date"):
+            node["datePublished"] = r["date"]
+        out.append(node)
+    return out
+
+def stars_html(rating, best=5):
+    full = int(round(float(rating)))
+    return ('<span class="stars" aria-label="별점 %s점">' % rating
+            + "★" * full + '<span class="off">' + "★" * (best - full) + '</span></span>')
+
+def reviews_section(cards_items, heading="고객 후기", more_link=None):
+    """실제 후기 카드 + 평균 별점. 요약(평균·건수)은 전체 후기 기준으로 표기."""
+    if not cards_items:
+        return ""
+    allitems = REVIEWS["items"]
+    avg = round(sum(float(r["rating"]) for r in allitems) / len(allitems), 1)
+    cards = "".join(
+        '<div class="review-card">'
+        + stars_html(r["rating"], REVIEWS["best"])
+        + f'<p class="body">{esc(r["body"])}</p>'
+        + f'<div class="meta"><b>{esc(r.get("author","고객"))}</b>'
+        + (f'<span>{esc(r.get("area",""))}{" · " if r.get("area") and r.get("date") else ""}{esc(r.get("date",""))}</span>' if (r.get("area") or r.get("date")) else "")
+        + '</div></div>'
+        for r in cards_items)
+    more = (f'<p class="muted" style="text-align:center;margin-top:1.4rem">'
+            f'<a href="{esc(more_link)}">전체 후기 {len(allitems)}건 보기 →</a></p>') if more_link else ""
+    return ('<section class="section reviews" id="reviews"><div class="container">'
+            f'<div class="section-head"><span class="eyebrow">실제 이용 후기</span><h2>{esc(heading)}</h2></div>'
+            '<div class="reviews-summary">'
+            f'<span class="reviews-score">{avg}</span>{stars_html(avg, REVIEWS["best"])}'
+            f'<span class="reviews-count">실제 후기 {len(allitems)}건 · 평균 {avg} / {REVIEWS["best"]}</span></div>'
+            f'<div class="review-grid">{cards}</div>{more}</div></section>')
+
+def service_node(page_id, area_served="인천광역시", name_prefix="인천", reviews=None):
+    """방문형 관리 서비스 + 실제 가격 Offer(화면 표와 일치). 실제 후기가 있을 때만 Review/Rating 포함."""
+    node = {
         "@type": "Service",
         "@id": page_id + "#service",
         "serviceType": "방문형 관리(출장마사지·홈타이)",
@@ -622,6 +691,12 @@ def service_node(page_id, area_served="인천광역시", name_prefix="인천"):
             ],
         },
     }
+    if reviews:  # 집계는 전체 실제 후기 기준, review[]는 화면에 노출된 것만
+        ar = aggregate_rating_ld(REVIEWS["items"])
+        if ar:
+            node["aggregateRating"] = ar
+            node["review"] = review_ld(reviews)
+    return node
 
 def pricing_section():
     """마사지 금액표(코스 기준 기본 금액) — 메인 + 전 지역 페이지 공통."""
@@ -831,8 +906,10 @@ def build_main():
         ]),
     ], title="인천 방문형 관리 주제별 안내")
 
+    reviews_block = reviews_section(REVIEWS["items"], heading="Calmora 실제 이용 후기")
+
     body = (hero + pricing + s1 + gu_section + life_section + use_section +
-            check_section + main_topics + reform_section + ops_section + faq_section)
+            check_section + reviews_block + main_topics + reform_section + ops_section + faq_section)
 
     crumbs = [("인천 홈", "/incheon/")]
     schema = [org_node(),
@@ -841,7 +918,8 @@ def build_main():
                "isPartOf": {"@id": SITE["url"]+"/#org"},
                "dateModified": SITE["today"], "primaryImageOfPage": image_ld(SITE["hero_img"], SITE["hero_alt"])},
               breadcrumb_ld(crumbs), faq_ld(main_faqs), image_ld(SITE["hero_img"], SITE["hero_alt"]),
-              service_node(SITE["url"]+path, area_served="인천광역시", name_prefix="인천")]
+              service_node(SITE["url"]+path, area_served="인천광역시", name_prefix="인천",
+                           reviews=REVIEWS["items"])]
 
     write_page(path, document(path=path, title=title, description=desc, body=body,
                               schema_nodes=schema))
@@ -943,7 +1021,13 @@ def build_region_page(*, path, h1, title, desc, name, focus, type_,
          (f"{name} 예약 전 확인", check_links),
          ("주변 지역·생활권 안내", area_links)],
         title=f"{name} 방문형 관리 주제별 안내")
-    body = body + cluster
+
+    # 지역 후기(있으면) 우선, 없으면 전체 후기 일부를 노출 — 화면 노출분만 review[]로 마크업
+    area_reviews = review_items_for(name)
+    shown_reviews = area_reviews if area_reviews else REVIEWS["items"][:6]
+    reviews_block = reviews_section(shown_reviews, heading=f"Calmora 실제 이용 후기",
+                                    more_link="/incheon/#reviews")
+    body = body + reviews_block + cluster
 
     schema = [org_node(),
               {"@type": "WebPage", "@id": SITE["url"]+path+"#webpage", "url": SITE["url"]+path,
@@ -951,7 +1035,8 @@ def build_region_page(*, path, h1, title, desc, name, focus, type_,
                "isPartOf": {"@id": SITE["url"]+"/#org"}, "dateModified": SITE["today"],
                "primaryImageOfPage": image_ld(SITE["hero_img"], og_caption)},
               breadcrumb_ld(crumbs), faq_ld(faqs), image_ld(SITE["hero_img"], og_caption),
-              service_node(SITE["url"]+path, area_served=name, name_prefix=name)]
+              service_node(SITE["url"]+path, area_served=name, name_prefix=name,
+                           reviews=shown_reviews)]
     write_page(path, document(path=path, title=title, description=desc, body=body,
                               schema_nodes=schema, noindex=noindex))
 
