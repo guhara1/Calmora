@@ -21,7 +21,7 @@ SITE = {
     "phone": "0508-202-4719",
     "phone_href": "tel:0508-202-4719",
     "telegram": "https://t.me/googleseolab",
-    "url": "https://www.calmora.co.kr",      # 배포 도메인에 맞게 수정
+    "url": "https://calmora.pages.dev",      # 배포 도메인(Cloudflare Pages)
     "locale": "ko_KR",
     "today": "2026-06-28",
     "author": "인천 지역 안내 콘텐츠 담당자",
@@ -262,6 +262,8 @@ STATIONS = [
     {"slug":"incheon-airport-terminal-1-station","name":"인천공항1터미널역","gu":"jung-gu","type":"airport","life":"인천공항","lifeslug":"incheon-airport","transfer":False,"near":["공항 제1터미널"]},
     {"slug":"incheon-airport-terminal-2-station","name":"인천공항2터미널역","gu":"jung-gu","type":"airport","life":"인천공항","lifeslug":"incheon-airport","transfer":False,"near":["공항 제2터미널"]},
 ]
+
+STATION_SLUG = {s["name"]: s["slug"] for s in STATIONS}
 
 USES = [
     {"slug":"home","name":"자택 이용","kw":"자택","focus":"공동현관 출입과 정확한 동·호수 확인이 핵심인 가정 방문"},
@@ -576,6 +578,51 @@ def usecase_detail_html(type_):
             f'<p class="muted">{esc(night)} 자세한 기준은 '
             '<a href="/incheon/use/night/">야간 예약</a>, <a href="/incheon/check/travel-fee/">추가 이동비 기준</a>에서 확인할 수 있습니다.</p>')
 
+def topic_cluster(groups, title="함께 보면 좋은 안내"):
+    """롱테일 앵커 텍스트 기반 내부링크 클러스터. groups=[(라벨,[(앵커,url),...]),...]"""
+    blocks = []
+    for label, links in groups:
+        if not links:
+            continue
+        items = "".join(
+            f'<a class="topic-link" href="{esc(u)}">{esc(a)}</a>' for a, u in links)
+        blocks.append(f'<div class="group-label">{esc(label)}</div>'
+                      f'<div class="topic-grid">{items}</div>')
+    if not blocks:
+        return ""
+    return ('<section class="section alt topic-cluster"><div class="container">'
+            f'<div class="section-head"><span class="eyebrow">주제별 빠른 안내</span><h2>{esc(title)}</h2></div>'
+            + "".join(blocks) + '</div></section>')
+
+# 코스 기본 금액(스키마 Offer와 화면 표를 한 곳에서 관리)
+COURSES = [
+    ("60분 코스", 90000, 60, "핵심 부위 위주 가벼운 이완"),
+    ("90분 코스", 150000, 90, "전신 균형 표준 구성·아로마 포함"),
+    ("120분 코스", 180000, 120, "구석구석 집중하는 프리미엄 구성"),
+]
+
+def service_node(page_id, area_served="인천광역시", name_prefix="인천"):
+    """방문형 관리 서비스 + 실제 가격 Offer(화면 표와 일치). 허위 Review/Rating 미포함."""
+    return {
+        "@type": "Service",
+        "@id": page_id + "#service",
+        "serviceType": "방문형 관리(출장마사지·홈타이)",
+        "name": f"{name_prefix} 방문형 관리",
+        "provider": {"@id": SITE["url"] + "/#org"},
+        "areaServed": {"@type": "City", "name": area_served},
+        "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "KRW",
+            "lowPrice": 90000, "highPrice": 180000, "offerCount": 3,
+            "offers": [
+                {"@type": "Offer", "name": c[0], "price": c[1], "priceCurrency": "KRW",
+                 "description": f"{c[2]}분 · {c[3]}",
+                 "availability": "https://schema.org/InStock"}
+                for c in COURSES
+            ],
+        },
+    }
+
 def pricing_section():
     """마사지 금액표(코스 기준 기본 금액) — 메인 + 전 지역 페이지 공통."""
     return (
@@ -754,8 +801,38 @@ def build_main():
     faq_section = ('<section class="section alt"><div class="container"><div class="prose">'
       '<h2>자주 묻는 질문</h2>' + faq_html(main_faqs) + '</div></div></section>')
 
+    main_topics = topic_cluster([
+        ("지역·생활권 주제별 안내", [
+            ("송도국제도시 오피스텔 방문형 관리 안내", "/incheon/life/songdo-international-city/"),
+            ("부평역 역세권 출장마사지 예약 안내", "/incheon/station/bupyeong-station/"),
+            ("구월·인천시청 상권 홈타이 안내", "/incheon/life/guwol-incheon-cityhall/"),
+            ("청라국제도시 신도시 방문 안내", "/incheon/life/cheongna-international-city/"),
+            ("검단신도시 입주 단지 방문 안내", "/incheon/life/geomdan-newtown/"),
+            ("영종·운서 공항권 숙소 이동 안내", "/incheon/life/yeongjong-unseo/"),
+            ("인천공항 인접 숙소 예약 안내", "/incheon/life/incheon-airport/"),
+            ("주안·도화 원도심 역세권 안내", "/incheon/life/juan-dohwa/"),
+            ("강화 도서권 방문 가능 여부 안내", "/incheon/life/ganghwa/"),
+        ]),
+        ("이용 장소별 주제 안내", [
+            ("인천 자택 방문 마사지 이용 안내", "/incheon/use/home/"),
+            ("인천 호텔·숙소 출장마사지 안내", "/incheon/use/hotel/"),
+            ("인천 오피스텔 홈타이 이용 안내", "/incheon/use/officetel/"),
+            ("인천 업무지구 예약 이용 안내", "/incheon/use/business-district/"),
+            ("인천 야간 예약 이용 안내", "/incheon/use/night/"),
+            ("인천 공항권 이동·이용 안내", "/incheon/use/airport-area/"),
+        ]),
+        ("예약 전 확인 주제 안내", [
+            ("인천 출장마사지 방문 주소 확인", "/incheon/check/address/"),
+            ("인천 추가 이동비·요금 기준 안내", "/incheon/check/travel-fee/"),
+            ("인천 예약 가능 시간 안내", "/incheon/check/time/"),
+            ("인천 건물 출입 방식 확인 안내", "/incheon/check/building-access/"),
+            ("개인정보 처리 기준 안내", "/incheon/check/privacy/"),
+            ("불법·선정적 서비스 불가 안내", "/incheon/check/service-policy/"),
+        ]),
+    ], title="인천 방문형 관리 주제별 안내")
+
     body = (hero + pricing + s1 + gu_section + life_section + use_section +
-            check_section + reform_section + ops_section + faq_section)
+            check_section + main_topics + reform_section + ops_section + faq_section)
 
     crumbs = [("인천 홈", "/incheon/")]
     schema = [org_node(),
@@ -763,7 +840,8 @@ def build_main():
                "name": title, "description": desc, "inLanguage": "ko",
                "isPartOf": {"@id": SITE["url"]+"/#org"},
                "dateModified": SITE["today"], "primaryImageOfPage": image_ld(SITE["hero_img"], SITE["hero_alt"])},
-              breadcrumb_ld(crumbs), faq_ld(main_faqs), image_ld(SITE["hero_img"], SITE["hero_alt"])]
+              breadcrumb_ld(crumbs), faq_ld(main_faqs), image_ld(SITE["hero_img"], SITE["hero_alt"]),
+              service_node(SITE["url"]+path, area_served="인천광역시", name_prefix="인천")]
 
     write_page(path, document(path=path, title=title, description=desc, body=body,
                               schema_nodes=schema))
@@ -840,12 +918,40 @@ def build_region_page(*, path, h1, title, desc, name, focus, type_,
       aside_html(f"{name} 주변 안내", aside_links, authority) +
       '</div></div></section>')
 
+    # 롱테일 내부링크 클러스터(지역명 접두 앵커)
+    use_links = [
+        (f"{name} 자택 방문 마사지 안내", "/incheon/use/home/"),
+        (f"{name} 호텔·숙소 출장마사지 안내", "/incheon/use/hotel/"),
+        (f"{name} 오피스텔 홈타이 이용 안내", "/incheon/use/officetel/"),
+        (f"{name} 업무지구 예약 이용 안내", "/incheon/use/business-district/"),
+        (f"{name} 역세권 방문형 관리 안내", "/incheon/use/station-area/"),
+        (f"{name} 야간 예약 이용 안내", "/incheon/use/night/"),
+    ]
+    check_links = [
+        (f"{name} 출장마사지 방문 주소 확인", "/incheon/check/address/"),
+        (f"{name} 추가 이동비·요금 기준", "/incheon/check/travel-fee/"),
+        (f"{name} 예약 가능 시간 안내", "/incheon/check/time/"),
+        (f"{name} 건물 출입 방식 확인", "/incheon/check/building-access/"),
+        ("개인정보 처리 기준 안내", "/incheon/check/privacy/"),
+    ]
+    area_links = [(f"{ln} 생활권 방문형 관리 안내", f"/incheon/life/{ls}/") for ln, ls in life_list]
+    for st in station_list:
+        if st in STATION_SLUG:
+            area_links.append((f"{st} 역세권 예약 안내", f"/incheon/station/{STATION_SLUG[st]}/"))
+    cluster = topic_cluster(
+        [(f"{name} 이용 장소별 안내", use_links),
+         (f"{name} 예약 전 확인", check_links),
+         ("주변 지역·생활권 안내", area_links)],
+        title=f"{name} 방문형 관리 주제별 안내")
+    body = body + cluster
+
     schema = [org_node(),
               {"@type": "WebPage", "@id": SITE["url"]+path+"#webpage", "url": SITE["url"]+path,
                "name": title, "description": desc, "inLanguage": "ko",
                "isPartOf": {"@id": SITE["url"]+"/#org"}, "dateModified": SITE["today"],
                "primaryImageOfPage": image_ld(SITE["hero_img"], og_caption)},
-              breadcrumb_ld(crumbs), faq_ld(faqs), image_ld(SITE["hero_img"], og_caption)]
+              breadcrumb_ld(crumbs), faq_ld(faqs), image_ld(SITE["hero_img"], og_caption),
+              service_node(SITE["url"]+path, area_served=name, name_prefix=name)]
     write_page(path, document(path=path, title=title, description=desc, body=body,
                               schema_nodes=schema, noindex=noindex))
 
