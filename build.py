@@ -29,6 +29,9 @@ SITE = {
     "hero_img": "/assets/img/hero-spa.webp",       # 실제 사진(webp, ≤50KB)
     "hero_img_fallback": "/assets/img/hero-spa.svg",  # 파일이 없을 때 자동 폴백
     "hero_alt": "오션뷰 프리미엄 케어룸 · 인천 방문형 관리 안내 이미지",
+    "naver_verify": "2d22beb90bd10d749a380f25aaf63d23f1f6de98",  # 네이버 서치어드바이저
+    "google_verify": "",  # 구글 서치콘솔 HTML 태그(있으면 입력)
+    "indexnow_key": "cc559fece0b5c126a4eb476e65135ded",          # IndexNow(빙·네이버·얀덱스)
 }
 
 # 권위 있는 외부 참고 링크(롱테일 보강용, nofollow 처리)
@@ -497,8 +500,12 @@ def aside_html(title, links, authority=None):
 # ----------------------------------------------------------------------------
 # 페이지 문서 래퍼
 # ----------------------------------------------------------------------------
+REGISTRY = []  # (path, title, desc, noindex) — 사이트맵/RSS/IndexNow 공용
+
 def document(*, path, title, description, body, schema_nodes, noindex=False,
-             og_image=None, hero=None):
+             og_image=None, hero=None, extra_head=""):
+    if path != "/404.html":
+        REGISTRY.append({"path": path, "title": title, "desc": description, "noindex": noindex})
     canonical = SITE["url"] + path
     og_image = og_image or SITE["hero_img"]
     robots = "noindex, nofollow" if noindex else "index, follow, max-image-preview:large"
@@ -519,6 +526,8 @@ def document(*, path, title, description, body, schema_nodes, noindex=False,
         '<link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">',
         '<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">',
         '<meta name="theme-color" content="#0A0D12">',
+        '<link rel="alternate" type="application/rss+xml" title="Calmora 업데이트" href="/rss.xml">',
+        extra_head,
         # Open Graph / Twitter — 선호 썸네일 명시
         '<meta property="og:type" content="website">',
         f'<meta property="og:site_name" content="{esc(SITE["brand"])}">',
@@ -921,8 +930,13 @@ def build_main():
               service_node(SITE["url"]+path, area_served="인천광역시", name_prefix="인천",
                            reviews=REVIEWS["items"])]
 
+    verify = ""
+    if SITE.get("naver_verify"):
+        verify += f'<meta name="naver-site-verification" content="{esc(SITE["naver_verify"])}">'
+    if SITE.get("google_verify"):
+        verify += f'<meta name="google-site-verification" content="{esc(SITE["google_verify"])}">'
     write_page(path, document(path=path, title=title, description=desc, body=body,
-                              schema_nodes=schema))
+                              schema_nodes=schema, extra_head=verify))
 
 # ----------------------------------------------------------------------------
 # 지역형 상세 페이지 (구군 / 대표지역 / 생활권 / 역세권) 공통 본문
@@ -1516,14 +1530,14 @@ def collect_urls():
     return urls
 
 def build_sitemap():
+    prio = {p: pr for p, pr, ni in collect_urls()}
     rows = []
-    for path, pri, noindex in collect_urls():
-        if noindex:  # noindex 페이지는 사이트맵에서 제외
-            continue
+    for r in index_pages():  # 실제 noindex 플래그 기준(contact 등 제외)
+        path = r["path"]
         rows.append(
           f'  <url><loc>{SITE["url"]}{path}</loc>'
           f'<lastmod>{SITE["today"]}</lastmod>'
-          f'<changefreq>weekly</changefreq><priority>{pri}</priority></url>')
+          f'<changefreq>weekly</changefreq><priority>{prio.get(path, "0.6")}</priority></url>')
     xml = ('<?xml version="1.0" encoding="UTF-8"?>\n'
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
            + "\n".join(rows) + '\n</urlset>\n')
@@ -1531,13 +1545,60 @@ def build_sitemap():
         f.write(xml)
     return len(rows)
 
+def index_pages():
+    """색인 대상(noindex 제외) 페이지 목록. RSS/IndexNow 공용."""
+    seen, out = set(), []
+    for r in REGISTRY:
+        if r["noindex"] or r["path"] in seen:
+            continue
+        seen.add(r["path"]); out.append(r)
+    return out
+
+def build_rss():
+    """RSS 2.0 피드 — 색인 대상 페이지를 검색엔진이 빠르게 발견하도록."""
+    pub = "Mon, 29 Jun 2026 00:00:00 +0900"
+    items = []
+    for r in index_pages():
+        loc = SITE["url"] + r["path"]
+        items.append(
+            "    <item>"
+            f"<title>{esc(r['title'])}</title>"
+            f"<link>{loc}</link>"
+            f"<guid isPermaLink=\"true\">{loc}</guid>"
+            f"<description>{esc(r['desc'])}</description>"
+            f"<pubDate>{pub}</pubDate>"
+            "</item>")
+    xml = ('<?xml version="1.0" encoding="UTF-8"?>\n'
+           '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
+           '  <channel>\n'
+           f'    <title>{esc(SITE["brand"])} · 인천 방문형 관리 안내</title>\n'
+           f'    <link>{SITE["url"]}/</link>\n'
+           '    <description>인천 출장마사지·홈타이 권역별 예약 안내, 이용 장소·예약 전 확인사항</description>\n'
+           '    <language>ko</language>\n'
+           f'    <lastBuildDate>{pub}</lastBuildDate>\n'
+           f'    <atom:link href="{SITE["url"]}/rss.xml" rel="self" type="application/rss+xml"/>\n'
+           + "\n".join(items) + '\n  </channel>\n</rss>\n')
+    with open(os.path.join(ROOT, "rss.xml"), "w", encoding="utf-8") as f:
+        f.write(xml)
+    return len(items)
+
+def build_indexnow_key():
+    """IndexNow 키 파일(/<key>.txt) — 내용은 키 자체."""
+    key = SITE["indexnow_key"]
+    with open(os.path.join(ROOT, f"{key}.txt"), "w", encoding="utf-8") as f:
+        f.write(key)
+
 def build_robots():
     txt = ("User-agent: *\n"
            "Allow: /\n"
            "Disallow: /jemulpo-gu/\n"
            "Disallow: /yeongjong-gu/\n"
            "Disallow: /geomdan-gu/\n\n"
-           f"Sitemap: {SITE['url']}/sitemap.xml\n")
+           "# 네이버 검색로봇 명시 허용\n"
+           "User-agent: Yeti\n"
+           "Allow: /\n\n"
+           f"Sitemap: {SITE['url']}/sitemap.xml\n"
+           f"Sitemap: {SITE['url']}/rss.xml\n")
     with open(os.path.join(ROOT, "robots.txt"), "w", encoding="utf-8") as f:
         f.write(txt)
 
@@ -1586,9 +1647,12 @@ def main():
     build_airport_island_hub()
     for r in REFORM: build_reform(r)
     n = build_sitemap()
-    build_robots()
     build_404()
+    r = build_rss()
+    build_indexnow_key()
+    build_robots()
     dump_data()
+    print(f"RSS {r}개 항목 / IndexNow 키 파일 생성")
     total = 1 + len(GUS) + len(AREAS) + len(LIFE) + len(STATIONS) + len(USES) + len(CHECKS) + len(POLICIES) + 1 + len(REFORM)
     print(f"생성 완료: 페이지 {total}개 / 사이트맵 {n}개 URL")
 

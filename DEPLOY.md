@@ -32,11 +32,31 @@
 > 최종 도메인이 다르면 `build.py` 의 `SITE["url"]` 만 바꾸고 `python3 build.py` 재실행 후
 > 커밋하면 canonical/og/sitemap/스키마가 일괄 갱신됩니다.
 
-## 3) 배포 후 SEO 마무리
+## 3) 배포 후 SEO 마무리 (색인 가장 빠르게)
 
-- Google Search Console에 도메인 등록 → `https://calmora.pages.dev/sitemap.xml` 제출
-- `robots.txt` 는 2026 개편 준비 페이지(`/jemulpo-gu/` 등)를 차단하도록 이미 설정됨
-- 색인 대상 페이지만 sitemap에 포함(noindex 페이지 제외됨)
+사이트맵·RSS·robots·IndexNow가 모두 자동 생성됩니다.
+- 사이트맵: `https://calmora.pages.dev/sitemap.xml` (91개, noindex 제외)
+- RSS 피드: `https://calmora.pages.dev/rss.xml`
+- IndexNow 키: `https://calmora.pages.dev/cc559fece0b5c126a4eb476e65135ded.txt`
+- `robots.txt` 에 두 사이트맵 등록 + 네이버 로봇(Yeti) 허용 + 개편 준비 페이지 차단
+
+### 검색엔진 등록
+1. **구글 Search Console**: 속성 등록(소유확인) → `sitemap.xml` 제출. 빠른 색인은 URL 검사 → '색인 생성 요청'.
+2. **네이버 서치어드바이저**: 사이트 등록(메인에 `naver-site-verification` 메타 이미 삽입됨) → `sitemap.xml`/`rss.xml` 제출.
+3. **빙 Webmaster**: 사이트 등록 → `sitemap.xml` 제출.
+
+### 즉시 색인 통보 (배포 완료 후 실행)
+```bash
+python3 tools/indexnow.py            # sitemap의 모든 URL을 빙·네이버·얀덱스에 즉시 통보
+python3 tools/indexnow.py https://calmora.pages.dev/yeonsu-gu/   # 특정 URL만
+```
+> ⚠️ 키 파일(`/cc559...txt`)이 **라이브에 올라간 뒤** 실행해야 검증됩니다(배포 후 1회 실행 권장).
+> 새 페이지를 추가/수정할 때마다 해당 URL로 다시 실행하면 즉시 재색인 통보됩니다.
+
+### 구글은 IndexNow 미참여
+구글은 IndexNow를 쓰지 않습니다. 가장 확실한 방법은 **Search Console + 사이트맵 + URL 검사**입니다.
+정책상 제한이 있지만 자동화가 필요하면 `tools/google_indexing.py`(서비스 계정 필요, 파일 상단 안내 참고)를 사용하세요.
+(참고: 구글·빙의 `ping?sitemap=` 방식은 2023년 폐기되어 더 이상 동작하지 않습니다.)
 
 ## 참고: 왜 "푸시"만으로는 접속이 안 됐나
 

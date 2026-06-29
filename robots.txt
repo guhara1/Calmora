@@ -4,4 +4,9 @@ Disallow: /jemulpo-gu/
 Disallow: /yeongjong-gu/
 Disallow: /geomdan-gu/
 
+# 네이버 검색로봇 명시 허용
+User-agent: Yeti
+Allow: /
+
 Sitemap: https://calmora.pages.dev/sitemap.xml
+Sitemap: https://calmora.pages.dev/rss.xml
